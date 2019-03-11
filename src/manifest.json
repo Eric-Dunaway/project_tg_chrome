@@ -10,10 +10,11 @@
     "128": "icons/128.png"
   },
   "permissions": [
-    "activeTab",
-    "<all_urls>",
-    "*://*/*"
+    "tabs"
   ],
+  "chrome_url_overrides": {
+    "newtab": "app.html"
+  },
   "background": {
     "scripts": ["background.js"],
     "persistent": false
@@ -27,7 +28,6 @@
     }
   },
   "options_ui": {
-    "page": "options/options.html",
-    "browser_style": true
+    "page": "options/options.html"
   }
 }

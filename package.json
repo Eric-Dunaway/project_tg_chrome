@@ -8,6 +8,8 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "material-design-icons-iconfont": "^3.0.3",
+    "roboto-fontface": "*",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1",
     "vuetify": "^1.5.5",
@@ -24,8 +26,12 @@
     "eslint-plugin-vue": "^5.0.0",
     "imports-loader": "^0.8.0",
     "lint-staged": "^8.1.4",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
     "vue-cli-plugin-browser-extension": "^0.14.0",
-    "vue-template-compiler": "^2.5.21"
+    "vue-cli-plugin-vuetify": "^0.5.0",
+    "vue-template-compiler": "^2.5.21",
+    "vuetify-loader": "^1.0.5"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
