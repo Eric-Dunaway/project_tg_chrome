@@ -1,16 +1,19 @@
 module.exports = {
+  extends: ['plugin:vue/recommended', '@vue/airbnb'],
+
   root: true,
+
   env: {
     node: true,
+    browser: true,
+    webextensions: true,
   },
-  extends: [
-    'plugin:vue/essential',
-    '@vue/airbnb',
-  ],
+
   rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-console': 'off',
+    'import/extensions': [1, { vue: 'never' }],
   },
+
   parserOptions: {
     parser: 'babel-eslint',
   },
