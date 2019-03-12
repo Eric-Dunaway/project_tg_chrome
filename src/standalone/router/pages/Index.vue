@@ -1,11 +1,23 @@
 <template>
-  <v-app>
-    <Time />
-  </v-app>
+  <!-- eslint-disable-next-line -->
+      <Background :searchWord="word" :customURL="userURL">
+    <v-container fluid>
+      <v-layout
+        align-center
+        justify-center
+        column
+      >
+        <v-flex>
+          <Time />
+        </v-flex>
+      </v-layout>
+    </v-container>
+  </Background>
 </template>
 
 <script>
 import Time from '../../components/Time';
+import Background from '../../components/Background';
 // ********/SEARCH PHOTOS CONTAINING WORD(S)\**********
 const word2Search = 'starscape';
 // ******************************************************
@@ -19,13 +31,13 @@ const word2Search = 'starscape';
 export default {
   components: {
     Time,
+    Background,
   },
 
   data() {
     return {
       word: word2Search,
       // userURL: null || url2Show,
-      middleComponent: '',
       color: '',
       fontFamily: '',
       fontSize: null,
@@ -49,7 +61,7 @@ export default {
 </script>
 
 <style scoped>
-p {
-  font-size: 40px;
-}
+  p {
+    font-size: 20px;
+  }
 </style>

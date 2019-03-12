@@ -156,4 +156,12 @@ export default {
 </script>
 
 <style>
+html, body {
+    width: 101%;
+    height: 101%;
+    position: fixed;
+    overflow: auto;
+    padding:0;
+    margin:0;
+}
 </style>
