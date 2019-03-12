@@ -1,4 +1,4 @@
-<template>
+<template v-bind:style="{ backgroundImage: 'url(' + image + ')' }">
   <v-app>
     <v-toolbar app>
       <v-toolbar-title class="headline text-uppercase">
@@ -17,17 +17,17 @@
     </v-toolbar>
 
     <v-content>
-      <HelloWorld />
+      <Background />
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from '../../components/HelloWorld';
+import Background from '../../components/Background';
 
 export default {
   components: {
-    HelloWorld,
+    Background,
   },
   data() {
     return {};

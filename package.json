@@ -10,6 +10,7 @@
   "dependencies": {
     "material-design-icons-iconfont": "^3.0.3",
     "roboto-fontface": "*",
+    "unsplash-js": "^5.0.0",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1",
     "vuetify": "^1.5.5",
