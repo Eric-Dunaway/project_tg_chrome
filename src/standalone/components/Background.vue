@@ -1,21 +1,5 @@
 <template>
-  <div id="picture">
-    <v-container>
-      <v-layout justify-space-around>
-        <v-flex xs5>
-          <div class="title mb-1">
-            Default (cover)
-          </div>
-          <v-layout column>
-            <div class="subheading">
-              Matching
-            </div>
-            <v-img src="https://picsum.photos/510/300?random" />
-          </v-layout>
-        </v-flex>
-      </v-layout>
-    </v-container>
-  </div>
+  <div id="picture" />
 </template>
 <script type="application/javascript">
 // import Unsplash from 'unsplash-js';
@@ -34,5 +18,7 @@ export default {
   #picture {
     background-image: url("../../assets/hero.jpeg");
     background-size: cover;
+    /* min-height 101% to prevent ugly white space on scroll */
+    min-height: 101%;
   }
 </style>

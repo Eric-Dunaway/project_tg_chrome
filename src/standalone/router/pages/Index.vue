@@ -2,8 +2,8 @@
   <v-app>
     <v-toolbar app>
       <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
+        <span>Techtonic</span>
+        <span class="font-weight-light"> Project Chrome</span>
       </v-toolbar-title>
       <v-spacer />
       <v-btn
@@ -44,7 +44,7 @@ export default {
 </script>
 
 <style scoped>
-p {
-  font-size: 20px;
-}
+  p {
+    font-size: 20px;
+  }
 </style>
