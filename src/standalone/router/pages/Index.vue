@@ -1,21 +1,7 @@
 <template>
-  <!-- eslint-disable-next-line -->
-      <Background :searchWord="word" :customURL="userURL">
-    <v-container fluid>
-      <v-layout
-        align-center
-        justify-center
-        column
-      >
-        <v-flex>
-          <!-- DELETE and add middle component (probably needs margin-top already centered)-->
-          <MiddleComponent>
-            Middle component
-          </MiddleComponent>
-        </v-flex>
-      </v-layout>
-    </v-container>
-  </Background>
+  <v-app>
+    <Time />
+  </v-app>
 </template>
 
 <script>
@@ -31,16 +17,21 @@ const word2Search = 'starscape';
 // const url2Show = 'https://images.unsplash.com/photo-1539131258078-89aaa90dd845?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80';
 // ******************************************************
 
+
 export default {
   components: {
     Background,
     MiddleComponent,
   },
+
   data() {
     return {
       word: word2Search,
       // userURL: null || url2Show,
       middleComponent: '',
+      color: '',
+      fontFamily: '',
+      fontSize: null,
     };
   },
   computed: {
@@ -51,8 +42,11 @@ export default {
   mounted() {
     browser.runtime.sendMessage({});
   },
-  render(createElement) {
-    return createElement('h1', 'Hello world!');
+  methods: {
+    // This method will hook up to the color picker component
+    // updateColor(newColor) {
+    //   this.color = newColor;
+    // },
   },
 };
 </script>
