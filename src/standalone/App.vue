@@ -39,7 +39,6 @@
         width="500"
         fixed
         app
-        class="primary"
       >
         <v-list>
           <v-list-tile
@@ -67,7 +66,6 @@
         fixed
         right
         app
-        class="primary"
       >
         <v-list>
           <v-list-tile>
@@ -103,7 +101,6 @@
 <script>
 const App = {
   data: () => ({
-    darkTheme: true,
     clipped: true,
     // Left side drawer
     drawerLeft: true,
