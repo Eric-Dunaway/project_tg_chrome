@@ -92,11 +92,20 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
+    <v-content>
+      <!-- this displays the pages listed in router/routes.js -->
+      <router-view />
+    </v-content>
   </v-app>
 </template>
 
 <script>
+// import components for drawers here
+
 const App = {
+  components: {
+    // register components for drawers here
+  },
   data: () => ({
     clipped: true,
     // Left side drawer

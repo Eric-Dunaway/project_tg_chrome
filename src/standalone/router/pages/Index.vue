@@ -1,20 +1,16 @@
 <template>
-  <v-app>
-    <v-content>
-      <router-view>
-        <Main />
-      </router-view>
-    </v-content>
-  </v-app>
+  <v-container>
+    <h1>Main container content here</h1>
+    <!-- Components go here (Clock, calendar, Profile/settings) -->
+  </v-container>
 </template>
 
 <script>
-import Main from '../../components/Main';
-
+// import components here
 
 export default {
   components: {
-    Main,
+    // register components for the Main Page here
   },
   data() {
     return {};
