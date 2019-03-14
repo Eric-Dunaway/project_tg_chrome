@@ -1,35 +1,18 @@
 <template>
   <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline">
-        <span>Techtonic</span>
-      </v-toolbar-title>
-      <v-spacer />
-      <v-btn
-        flat
-        href="https://www.techtonic.com"
-        target="_blank"
-      >
-        <v-img
-          :src="require('../../../assets/Techtonic_Black.png')"
-          class="my-3"
-          contain
-        />
-      </v-btn>
-    </v-toolbar>
-
     <v-content>
-      <Layout />
+      <Main />
     </v-content>
   </v-app>
 </template>
 
 <script>
-import Layout from '../../components/Layout';
+import Main from '../../components/Main';
+
 
 export default {
   components: {
-    Layout,
+    Main,
   },
   data() {
     return {};
@@ -47,6 +30,6 @@ export default {
 
 <style scoped>
 p {
-  font-size: 20px;
+  font-size: 40px;
 }
 </style>
