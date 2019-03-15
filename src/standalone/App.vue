@@ -102,7 +102,7 @@
 <script>
 // import components for drawers here
 
-const App = {
+export default {
   components: {
     // register components for drawers here
   },
@@ -132,7 +132,6 @@ const App = {
     miniVariantRight: true,
   }),
 };
-export default App;
 </script>
 
 <style>
