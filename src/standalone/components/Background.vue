@@ -18,19 +18,23 @@ export default {
     image: '',
   }),
   created() {
-    axios.get('https://api.unsplash.com/search/photos?query=jellyfish', {
-      headers: {
-        Authorization: 'Client-ID c01fec69a3d7aba9294659ebf752717ae5bbbe7283df275c2195af91d67de6f1',
-      },
-    })
-      .then((response) => {
-      // JSON responses are automatically parsed.
-        this.image = response.data.results[1].urls.full;
-        console.log(response.data.results[0].urls.full);
-      })
-      .catch((e) => {
-        this.errors.push(e);
-      });
+    const picture = async () => {
+      try {
+        const response = await axios.get('https://api.unsplash.com/photos/random', {
+          headers: {
+            Authorization: 'Client-ID c01fec69a3d7aba9294659ebf752717ae5bbbe7283df275c2195af91d67de6f1',
+          },
+          params: {
+            query: 'jellyfish',
+          },
+        });
+        console.log(response);
+        this.image = response.data.urls.full;
+      } catch (error) {
+        console.log('Line 34 AXIOS ERROR', error);
+      }
+    };
+    picture();
   },
 };
 
