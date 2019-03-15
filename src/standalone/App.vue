@@ -19,7 +19,7 @@
         flat
       >
         <v-img
-          :src="require('../assets/Techtonic_Black.png')"
+          :src="require('../assets/techtonic_black.webp')"
           contain
         />
       </v-btn>
