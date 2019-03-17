@@ -9,9 +9,7 @@
     "48": "icons/48.png",
     "128": "icons/128.png"
   },
-  "permissions": [
-    "tabs"
-  ],
+  "permissions": ["tabs", "identity"],
   "chrome_url_overrides": {
     "newtab": "app.html"
   },
