@@ -10,6 +10,15 @@
     "128": "icons/128.png"
   },
   "permissions": ["tabs", "identity"],
+  "content_security_policy": "script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'",
+  "oauth2": {
+    "client_id": "876962566748-p2ph7khp7kcml7j2j6gfhe1htsv8m6jj.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email",
+      "https://www.googleapis.com/auth/userinfo.profile"
+    ]
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoYSYX/OXHpDFRtoztDo/gxiehE1STQxGHnLBJTMDhCYmfxgyQMu1nJZbiWHMZG0VBrF0WQSMYSqG8AI5IaoKQeFTytqPSv5voRlbwqyLr1PG/vV/uVP/PQ2jnV8SThKMPmYxAhvR/xU6JN5s6Mvec7UB43QKQVo4o7syIdsUWYMVdRJcYWnYWtM1GAJd3rfC/OiI5yupgZo+QlrhKFJPFrsPkRSaRe4Ajd7QJhHUtoHX0BsoMqWLPq3f86Lsj4mSL15x+OAYPeLm6lIONxGA87yj5QG8TQ24PHjmAx+vPJLBcLHZRtAs/OfDAlVQZi08oE8tXtjVC6SV0OD1qJRbhwIDAQAB",
   "chrome_url_overrides": {
     "newtab": "app.html"
   },
