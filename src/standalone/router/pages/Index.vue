@@ -17,7 +17,7 @@
     </v-toolbar>
 
     <v-content>
-      <Background />
+      <Background :is="middleComponent" />
     </v-content>
   </v-app>
 </template>
@@ -30,7 +30,9 @@ export default {
     Background,
   },
   data() {
-    return {};
+    return {
+      middleComponent: '',
+    };
   },
   computed: {
     defaultText() {
