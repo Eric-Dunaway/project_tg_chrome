@@ -1,14 +1,15 @@
 <template>
   <v-app>
     <!-- TODO: enable theme switching w/ dark and light props
-    -will need to swap techtonic icon too -->
-    <v-toolbar
-      app
-    >
+    -will need to swap techtonic icon too-->
+    <v-toolbar app>
       <v-toolbar-side-icon
         v-model="drawerLeft"
         @click.stop="miniVariantLeft = !miniVariantLeft"
       />
+      <v-btn @click="googleSignIn">
+        sign in
+      </v-btn>
       <v-toolbar-title class="headline">
         <span>Techtonic</span>
       </v-toolbar-title>
@@ -100,6 +101,7 @@
 </template>
 
 <script>
+import firebase from 'firebase';
 // import components for drawers here
 
 export default {
@@ -131,9 +133,26 @@ export default {
     ],
     miniVariantRight: true,
   }),
+  methods: {
+    googleSignIn() {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      provider.addScope('https://www.googleapis.com/auth/userinfo.profile');
+      provider.setCustomParameters({
+        display: 'popup',
+      });
+      firebase
+        .auth()
+        .signInWithPopup(provider)
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  },
 };
 </script>
 
 <style>
-
 </style>
