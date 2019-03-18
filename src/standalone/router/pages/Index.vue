@@ -5,8 +5,7 @@
 </template>
 
 <script>
-import Background from '../../components/Background';
-import MiddleComponent from '../../components/MiddleComponent';
+import Time from '../../components/Time';
 // ********/SEARCH PHOTOS CONTAINING WORD(S)\**********
 const word2Search = 'starscape';
 // ******************************************************
@@ -17,11 +16,9 @@ const word2Search = 'starscape';
 // const url2Show = 'https://images.unsplash.com/photo-1539131258078-89aaa90dd845?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80';
 // ******************************************************
 
-
 export default {
   components: {
-    Background,
-    MiddleComponent,
+    Time,
   },
 
   data() {
@@ -52,7 +49,7 @@ export default {
 </script>
 
 <style scoped>
-  p {
-    font-size: 20px;
-  }
+p {
+  font-size: 40px;
+}
 </style>
