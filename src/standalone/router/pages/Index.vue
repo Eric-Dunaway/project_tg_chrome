@@ -1,33 +1,16 @@
 <template>
-  <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer />
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>open_in_new</v-icon>
-      </v-btn>
-    </v-toolbar>
-
-    <v-content>
-      <HelloWorld />
-    </v-content>
-  </v-app>
+  <v-container>
+    <h1>Main container content here</h1>
+    <!-- Components go here (Clock, calendar, Profile/settings) -->
+  </v-container>
 </template>
 
 <script>
-import HelloWorld from '../../components/HelloWorld';
+// import components here
 
 export default {
   components: {
-    HelloWorld,
+    // register components for the Main Page here
   },
   data() {
     return {};
@@ -45,6 +28,6 @@ export default {
 
 <style scoped>
 p {
-  font-size: 20px;
+  font-size: 40px;
 }
 </style>
