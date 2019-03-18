@@ -136,10 +136,6 @@ export default {
   methods: {
     googleSignIn() {
       const provider = new firebase.auth.GoogleAuthProvider();
-      provider.addScope('https://www.googleapis.com/auth/userinfo.profile');
-      provider.setCustomParameters({
-        display: 'popup',
-      });
       firebase
         .auth()
         .signInWithPopup(provider)

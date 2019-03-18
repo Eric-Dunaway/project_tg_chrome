@@ -14,6 +14,7 @@ new Vue({
 
 const config = {
   apiKey: 'AIzaSyD8RTIS1VMI76VwdvHhba9wXFyIkbg4PiE',
+  authDomain: 'project-webextension-tg-4dfca.firebaseapp.com',
   databaseURL: 'https://project-webextension-tg-4dfca.firebaseio.com',
   projectId: 'project-webextension-tg-4dfca',
 };

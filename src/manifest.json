@@ -12,7 +12,7 @@
   "permissions": ["tabs", "identity"],
   "content_security_policy": "script-src 'self' 'unsafe-eval' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com https://apis.google.com; object-src 'self'",
   "oauth2": {
-    "client_id": "876962566748-p2ph7khp7kcml7j2j6gfhe1htsv8m6jj.apps.googleusercontent.com",
+    "client_id": "412513743787-0jt4rq9kg21jggaosuhlcb86kpi3or21.apps.googleusercontent.com",
     "scopes": [
       "https://www.googleapis.com/auth/userinfo.email",
       "https://www.googleapis.com/auth/userinfo.profile"
