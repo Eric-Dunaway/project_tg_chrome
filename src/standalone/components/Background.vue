@@ -44,8 +44,8 @@ export default {
               h: window.screen.height,
             },
           });
-          console.log(response);
-          console.log();
+          // Print payload from unsplash.com api in following log
+          // console.log(response);
           this.image = response.data.urls.full;
         } catch (error) {
           console.log('Line 34 AXIOS ERROR', error);
