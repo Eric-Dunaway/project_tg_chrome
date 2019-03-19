@@ -16,14 +16,8 @@
         This is a Clock
       </p>
     </v-layout>
-    <v-layout
-      align-center
-      justify-center
-      row
-      fill-height
-    >
-      <Calendar />
-    </v-layout>
+
+    <Calendar />
   </v-container>
 </template>
 

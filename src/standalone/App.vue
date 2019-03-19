@@ -94,7 +94,7 @@
     </v-navigation-drawer>
     <v-content>
       <!-- this displays the pages listed in router/routes.js -->
-      <router-view />
+      <router-view class="test1" />
     </v-content>
   </v-app>
 </template>
@@ -135,5 +135,7 @@ export default {
 </script>
 
 <style>
-
+.test1 {
+  background-color: green;
+}
 </style>
