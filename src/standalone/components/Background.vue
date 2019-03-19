@@ -33,7 +33,7 @@ export default {
     const picture = async () => {
       if (this.customURL === null) {
         try {
-          const response = await axios.get('https://api.unsplash.com/photdfasos/random', {
+          const response = await axios.get('https://api.unsplash.com/photos/random', {
             headers: {
               Authorization: 'Client-ID c01fec69a3d7aba9294659ebf752717ae5bbbe7283df275c2195af91d67de6f1',
             },
