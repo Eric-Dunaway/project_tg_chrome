@@ -67,8 +67,5 @@ export default {
     background-size: cover;
     min-height: 101%;
     overflow: hidden;
-    display: flex;
-  align-items: center;
-  justify-content: center;
   }
 </style>
