@@ -3,6 +3,7 @@
   "name": "__MSG_extName__",
   "homepage_url": "http://localhost/",
   "description": "A Vue Browser Extension",
+  "version": "0.3.1",
   "default_locale": "en",
   "icons": {
     "16": "icons/16.png",
@@ -11,9 +12,18 @@
   },
   "permissions": [
     "tabs",
-    "http://*/"
+    "http://*/",
+    "identity"
   ],
-  "content_security_policy": "script-src 'self' 'unsafe-eval' 'sha256-yGH2MN16oB45NKasTZX+3s8Pxi4a/Dw473njO8ukvMU=' http://localhost:8098; object-src 'self'",
+  "content_security_policy": "script-src 'self' 'unsafe-eval' 'sha256-yGH2MN16oB45NKasTZX+3s8Pxi4a/Dw473njO8ukvMU=' http://localhost:8098; https://*.firebaseio.com https://www.googleapis.com https://apis.google.com; object-src 'self'",
+  "oauth2": {
+    "client_id": "412513743787-0jt4rq9kg21jggaosuhlcb86kpi3or21.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email",
+      "https://www.googleapis.com/auth/userinfo.profile"
+    ]
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoYSYX/OXHpDFRtoztDo/gxiehE1STQxGHnLBJTMDhCYmfxgyQMu1nJZbiWHMZG0VBrF0WQSMYSqG8AI5IaoKQeFTytqPSv5voRlbwqyLr1PG/vV/uVP/PQ2jnV8SThKMPmYxAhvR/xU6JN5s6Mvec7UB43QKQVo4o7syIdsUWYMVdRJcYWnYWtM1GAJd3rfC/OiI5yupgZo+QlrhKFJPFrsPkRSaRe4Ajd7QJhHUtoHX0BsoMqWLPq3f86Lsj4mSL15x+OAYPeLm6lIONxGA87yj5QG8TQ24PHjmAx+vPJLBcLHZRtAs/OfDAlVQZi08oE8tXtjVC6SV0OD1qJRbhwIDAQAB",
   "chrome_url_overrides": {
     "newtab": "app.html"
   },

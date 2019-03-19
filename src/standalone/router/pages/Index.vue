@@ -1,14 +1,16 @@
 <template>
-  <v-app>
-    <v-content>
-      <!-- eslint-disable-next-line -->
-      <Background :searchWord="word" :customURL="userURL">
-        <MiddleComponent type="primary">
-          Erase & replace with middle component
-        </MiddleComponent>
-      </Background>
-    </v-content>
-  </v-app>
+  <v-container>
+    <v-app>
+      <v-content>
+        <!-- eslint-disable-next-line -->
+        <Background :searchWord="word" :customURL="userURL">
+          <MiddleComponent type="primary">
+            Erase & replace with middle component
+          </MiddleComponent>
+        </Background>
+      </v-content>
+    </v-app>
+  </v-container>
 </template>
 
 <script>
@@ -43,14 +45,11 @@ export default {
   mounted() {
     browser.runtime.sendMessage({});
   },
-  render(createElement) {
-    return createElement('h1', 'Hello world!');
-  },
 };
 </script>
 
 <style scoped>
-  p {
-    font-size: 20px;
-  }
+p {
+  font-size: 40px;
+}
 </style>

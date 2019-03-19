@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "firebase": "^5.9.0",
     "material-design-icons-iconfont": "^3.0.3",
     "roboto-fontface": "*",
     "unsplash-js": "^5.0.0",
