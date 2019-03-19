@@ -7,7 +7,7 @@
         v-model="drawerLeft"
         @click.stop="miniVariantLeft = !miniVariantLeft"
       />
-      <v-btn @click="googleSignIn">
+      <v-btn @click="googleSignIn(true)">
         sign in
       </v-btn>
       <v-toolbar-title class="headline">
@@ -134,17 +134,33 @@ export default {
     miniVariantRight: true,
   }),
   methods: {
-    googleSignIn() {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      firebase
-        .auth()
-        .signInWithPopup(provider)
-        .then((result) => {
-          console.log(result);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+    googleSignIn(interactive) {
+      chrome.identity.getAuthToken({ interactive: !!interactive }, (token) => {
+        if (chrome.runtime.lastError && !interactive) {
+          console.log('It was not possible to get a token programmatically.');
+        } else if (chrome.runtime.lastError) {
+          console.error(chrome.runtime.lastError);
+        } else if (token) {
+          // Authorize Firebase with the OAuth Access Token.
+          const credential = firebase.auth.GoogleAuthProvider.credential(
+            null,
+            token,
+          );
+          firebase
+            .auth()
+            .signInAndRetrieveDataWithCredential(credential)
+            .catch((error) => {
+              // The OAuth token might have been invalidated. Lets' remove it from cache.
+              if (error.code === 'auth/invalid-credential') {
+                chrome.identity.removeCachedAuthToken({ token }, () => {
+                  this.googleSignIn(interactive);
+                });
+              }
+            });
+        } else {
+          console.error('The OAuth Token was null');
+        }
+      });
     },
   },
 };

@@ -3,6 +3,7 @@
   "name": "__MSG_extName__",
   "homepage_url": "http://localhost/",
   "description": "A Vue Browser Extension",
+  "version": "0.3.1",
   "default_locale": "en",
   "icons": {
     "16": "icons/16.png",
@@ -10,7 +11,7 @@
     "128": "icons/128.png"
   },
   "permissions": ["tabs", "identity"],
-  "content_security_policy": "script-src 'self' 'unsafe-eval' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com https://apis.google.com; object-src 'self'",
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://*.firebaseio.com https://www.googleapis.com https://apis.google.com; object-src 'self'",
   "oauth2": {
     "client_id": "412513743787-0jt4rq9kg21jggaosuhlcb86kpi3or21.apps.googleusercontent.com",
     "scopes": [
