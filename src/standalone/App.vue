@@ -1,14 +1,15 @@
 <template>
   <v-app>
     <!-- TODO: enable theme switching w/ dark and light props
-    -will need to swap techtonic icon too -->
-    <v-toolbar
-      app
-    >
+    -will need to swap techtonic icon too-->
+    <v-toolbar app>
       <v-toolbar-side-icon
         v-model="drawerLeft"
         @click.stop="miniVariantLeft = !miniVariantLeft"
       />
+      <v-btn @click="googleSignIn(true)">
+        sign in
+      </v-btn>
       <v-toolbar-title class="headline">
         <span>Techtonic</span>
       </v-toolbar-title>
@@ -100,6 +101,7 @@
 </template>
 
 <script>
+import firebase from 'firebase';
 // import components for drawers here
 
 export default {
@@ -131,9 +133,38 @@ export default {
     ],
     miniVariantRight: true,
   }),
+  methods: {
+    googleSignIn(interactive) {
+      chrome.identity.getAuthToken({ interactive: !!interactive }, (token) => {
+        if (chrome.runtime.lastError && !interactive) {
+          console.log('It was not possible to get a token programmatically.');
+        } else if (chrome.runtime.lastError) {
+          console.error(chrome.runtime.lastError);
+        } else if (token) {
+          // Authorize Firebase with the OAuth Access Token.
+          const credential = firebase.auth.GoogleAuthProvider.credential(
+            null,
+            token,
+          );
+          firebase
+            .auth()
+            .signInAndRetrieveDataWithCredential(credential)
+            .catch((error) => {
+              // The OAuth token might have been invalidated. Lets' remove it from cache.
+              if (error.code === 'auth/invalid-credential') {
+                chrome.identity.removeCachedAuthToken({ token }, () => {
+                  this.googleSignIn(interactive);
+                });
+              }
+            });
+        } else {
+          console.error('The OAuth Token was null');
+        }
+      });
+    },
+  },
 };
 </script>
 
 <style>
-
 </style>
