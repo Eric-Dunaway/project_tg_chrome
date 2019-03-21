@@ -5,7 +5,7 @@
     <v-toolbar app>
       <v-toolbar-side-icon
         v-model="drawerLeft"
-        @click.stop="miniVariantLeft = !miniVariantLeft"
+        @click.stop="drawerLeft = !drawerLeft"
       />
       <v-btn @click="googleSignIn(true)">
         sign in
@@ -31,13 +31,10 @@
     </v-toolbar>
     <v-navigation-drawer
       v-model="drawerLeft"
-      persistent
-      :mini-variant="miniVariantLeft"
-      :clipped="clipped"
-      enable-resize-watcher
-      width="500"
-      fixed
+      mini-variant
+      temporary
       app
+      floating
     >
       <v-list>
         <v-list-tile
@@ -58,11 +55,9 @@
     </v-navigation-drawer>
     <v-navigation-drawer
       v-model="drawerRight"
-      persistent
-      :mini-variant="miniVariantRight"
-      :clipped="clipped"
-      enable-resize-watcher
-      fixed
+      mini-variant
+      temporary
+      floating
       right
       app
     >
@@ -101,7 +96,8 @@
 </template>
 
 <script>
-import auth from 'firebase/auth';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 // import components for drawers here
 
 export default {
@@ -109,9 +105,8 @@ export default {
     // register components for drawers here
   },
   data: () => ({
-    clipped: true,
     // Left side drawer
-    drawerLeft: true,
+    drawerLeft: false,
     itemsLeft: [
       {
         icon: 'extension',
@@ -122,33 +117,31 @@ export default {
         title: 'Me',
       },
     ],
-    miniVariantLeft: true,
     // Right side drawer
-    drawerRight: true,
+    drawerRight: false,
     itemsRight: [
       {
         icon: 'notifications_off',
         title: 'Inspire',
       },
     ],
-    miniVariantRight: true,
   }),
   methods: {
     googleSignIn(interactive) {
-      chrome.identity.getAuthToken({ interactive: !!interactive }, (token) => {
-        if (chrome.runtime.lastError && !interactive) {
+      browser.identity.getAuthToken({ interactive: !!interactive }, (token) => {
+        if (browser.runtime.lastError && !interactive) {
           console.log('It was not possible to get a token programmatically.');
-        } else if (chrome.runtime.lastError) {
-          console.error(chrome.runtime.lastError);
+        } else if (browser.runtime.lastError) {
+          console.error(browser.runtime.lastError);
         } else if (token) {
           // Authorize Firebase with the OAuth Access Token.
-          const credential = auth.GoogleAuthProvider.credential(null, token);
-          auth()
+          const credential = firebase.auth.GoogleAuthProvider.credential(null, token);
+          firebase.auth()
             .signInAndRetrieveDataWithCredential(credential)
             .catch((error) => {
               // The OAuth token might have been invalidated. Lets' remove it from cache.
               if (error.code === 'auth/invalid-credential') {
-                chrome.identity.removeCachedAuthToken({ token }, () => {
+                browser.identity.removeCachedAuthToken({ token }, () => {
                   this.googleSignIn(interactive);
                 });
               }
