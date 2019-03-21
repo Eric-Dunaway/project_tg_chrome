@@ -17,7 +17,7 @@
       </p>
     </v-layout>
 
-    <Calendar />
+    <Calendar :darktheme="isdark" />
   </v-container>
 </template>
 
@@ -31,7 +31,9 @@ export default {
     Calendar,
   },
   data() {
-    return {};
+    return {
+      isdark: false,
+    };
   },
   computed: {
     defaultText() {

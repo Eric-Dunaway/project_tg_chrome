@@ -9,32 +9,39 @@
     <v-flex
       xs12
       sm6
-      justify-content-center
+      class="center"
     >
+      <v-icon
+        :color="determineIconColor()"
+        x-large
+      >
+        today
+      </v-icon>
       <v-data-table
         id="transparent"
         :items="events"
         class="calendar"
+        :dark="darktheme"
+        hide-headers
       >
         <template v-slot:no-data>
           <v-alert
             :value="true"
             color="transparent"
-            icon="today"
-            class="black--text"
+            class="center"
           >
             You have nothing scheduled today.
           </v-alert>
         </template>
-        <template v-slot:items="props">
+        <template v-slot:items="events">
           <td>
-            {{ props.item.time }}
+            {{ events.item.time }}
           </td>
           <td>
-            {{ props.item.title }}
+            {{ events.item.title }}
           </td>
           <td>
-            {{ props.item.timeleft }}
+            {{ events.item.timeleft }}
           </td>
         </template>
       </v-data-table>
@@ -44,67 +51,91 @@
 
 <script>
 export default {
+  props: {
+    darktheme: {
+      type: Boolean,
+      required: true,
+    },
+
+  },
   data: () => ({
-    textcolor: 'black',
-    events: [
-      {
-        time: '1:00',
-        title: 'Sprint Planning',
-        timeleft: '15 min',
-      },
-      {
-        time: '4:00',
-        title: '1:1 w/ Team',
-        timeleft: '3 hours',
-      },
-      {
-        time: '1:00',
-        title: 'Sprint Planning',
-        timeleft: '15 min',
-      },
-      {
-        time: '4:00',
-        title: '1:1 w/ Team',
-        timeleft: '3 hours',
-      },
-      {
-        time: '1:00',
-        title: 'Sprint Planning',
-        timeleft: '15 min',
-      },
-      {
-        time: '4:00',
-        title: '1:1 w/ Team',
-        timeleft: '3 hours',
-      },
-      {
-        time: '1:00',
-        title: 'Sprint Planning',
-        timeleft: '15 min',
-      },
-      {
-        time: '4:00',
-        title: '1:1 w/ Team',
-        timeleft: '3 hours',
-      },
-      {
-        time: '1:00',
-        title: 'Sprint Planning',
-        timeleft: '15 min',
-      },
-      {
-        time: '4:00',
-        title: '1:1 w/ Team',
-        timeleft: '3 hours',
-      },
-    ],
-
-
+    events: [],
   }),
+  computed: {
+    dark() {
+      return !this.darktheme;
+    },
+  },
+  // this is where api call to firebase goes to fill out events
+  // for now, it returns a hard-coded list
+  created() {
+    this.events = [{
+      time: '1:00',
+      title: 'Sprint Planning',
+      timeleft: '15 min',
+    },
+    {
+      time: '4:00',
+      title: '1:1 w/ Team',
+      timeleft: '3 hours',
+    },
+    {
+      time: '1:00',
+      title: 'Sprint Planning',
+      timeleft: '15 min',
+    },
+    {
+      time: '4:00',
+      title: '1:1 w/ Team',
+      timeleft: '3 hours',
+    },
+    {
+      time: '1:00',
+      title: 'Sprint Planning',
+      timeleft: '15 min',
+    },
+    {
+      time: '4:00',
+      title: '1:1 w/ Team',
+      timeleft: '3 hours',
+    },
+    {
+      time: '1:00',
+      title: 'Sprint Planning',
+      timeleft: '15 min',
+    },
+    {
+      time: '4:00',
+      title: '1:1 w/ Team',
+      timeleft: '3 hours',
+    },
+    {
+      time: '1:00',
+      title: 'Sprint Planning',
+      timeleft: '15 min',
+    },
+    {
+      time: '4:00',
+      title: '1:1 w/ Team',
+      timeleft: '3 hours',
+    }];
+  },
+  methods: {
+    determineIconColor() {
+      return this.darktheme ? 'white' : 'black';
+    },
+    calculateTimeLeft(time) {
+      return time;
+    },
+  },
 };
 </script>
 
 <style>
+.center{
+  text-align: center;
+  align-self: center;
+}
 .calendar {
   border: 1px solid red;
 
