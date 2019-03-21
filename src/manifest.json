@@ -10,8 +10,10 @@
     "128": "icons/128.png"
   },
   "permissions": [
-    "tabs"
+    "tabs",
+    "http://*/"
   ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval' 'sha256-yGH2MN16oB45NKasTZX+3s8Pxi4a/Dw473njO8ukvMU=' http://localhost:8098; object-src 'self'",
   "chrome_url_overrides": {
     "newtab": "app.html"
   },
