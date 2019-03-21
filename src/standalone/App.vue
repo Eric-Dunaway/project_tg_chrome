@@ -101,7 +101,7 @@
 </template>
 
 <script>
-import firebase from 'firebase';
+import auth from 'firebase/auth';
 // import components for drawers here
 
 export default {
@@ -142,12 +142,8 @@ export default {
           console.error(chrome.runtime.lastError);
         } else if (token) {
           // Authorize Firebase with the OAuth Access Token.
-          const credential = firebase.auth.GoogleAuthProvider.credential(
-            null,
-            token,
-          );
-          firebase
-            .auth()
+          const credential = auth.GoogleAuthProvider.credential(null, token);
+          auth()
             .signInAndRetrieveDataWithCredential(credential)
             .catch((error) => {
               // The OAuth token might have been invalidated. Lets' remove it from cache.
