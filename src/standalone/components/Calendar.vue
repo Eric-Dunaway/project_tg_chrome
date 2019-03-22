@@ -43,6 +43,9 @@
           <td>
             {{ calculateTimeLeft(events.item.time) }}
           </td>
+          <td>
+            {{ checkForExpiredEvents() }}
+          </td>
         </template>
       </v-data-table>
     </v-flex>
@@ -112,6 +115,7 @@ export default {
       title: 'StarTrek',
     },
     ];
+    this.checkForExpiredEvents();
   },
   methods: {
     determineIconColor() {
@@ -122,6 +126,15 @@ export default {
     },
     calculateTimeLeft(time) {
       return moment(time).fromNow();
+    },
+    checkForExpiredEvents() {
+      console.log('before events:');
+      console.log(this.events);
+      const now = moment().add(15, 'minutes');
+      console.log(now);
+      this.events.filter(item => now.isBefore(moment(item.time)));
+      console.log('after events: ');
+      console.log(this.events);
     },
   },
 };
