@@ -35,13 +35,13 @@
         </template>
         <template v-slot:items="events">
           <td>
-            {{ events.item.time }}
+            {{ displayTime(events.item.time) }}
           </td>
           <td>
             {{ events.item.title }}
           </td>
           <td>
-            {{ events.item.timeleft }}
+            {{ calculateTimeLeft(events.item.time) }}
           </td>
         </template>
       </v-data-table>
@@ -50,6 +50,8 @@
 </template>
 
 <script>
+import moment from 'moment';
+
 export default {
   props: {
     darktheme: {
@@ -70,62 +72,56 @@ export default {
   // for now, it returns a hard-coded list
   created() {
     this.events = [{
-      time: '1:00',
+      time: '2019-03-22 9:00:00',
+      title: 'Scrum',
+    },
+    {
+      time: '2019-03-22 10:00:00',
+      title: '1:1 w/ Team Lead',
+    },
+    {
+      time: '2019-03-22 10:30:00',
       title: 'Sprint Planning',
-      timeleft: '15 min',
     },
     {
-      time: '4:00',
-      title: '1:1 w/ Team',
-      timeleft: '3 hours',
+      time: '2019-03-22 11:00:00',
+      title: 'Backlog',
     },
     {
-      time: '1:00',
-      title: 'Sprint Planning',
-      timeleft: '15 min',
+      time: '2019-03-22 12:00:00',
+      title: 'Lunch',
     },
     {
-      time: '4:00',
-      title: '1:1 w/ Team',
-      timeleft: '3 hours',
+      time: '2019-03-22 14:00:00',
+      title: 'Client meeting',
     },
     {
-      time: '1:00',
-      title: 'Sprint Planning',
-      timeleft: '15 min',
+      time: '2019-03-22 15:00:00',
+      title: 'Coffee Break',
     },
     {
-      time: '4:00',
-      title: '1:1 w/ Team',
-      timeleft: '3 hours',
+      time: '2019-03-22 17:45:00',
+      title: 'Team Exercises',
     },
     {
-      time: '1:00',
-      title: 'Sprint Planning',
-      timeleft: '15 min',
+      time: '2019-03-22 18:00:00',
+      title: 'Yoga',
     },
     {
-      time: '4:00',
-      title: '1:1 w/ Team',
-      timeleft: '3 hours',
+      time: '2019-03-22 21:00:00',
+      title: 'StarTrek',
     },
-    {
-      time: '1:00',
-      title: 'Sprint Planning',
-      timeleft: '15 min',
-    },
-    {
-      time: '4:00',
-      title: '1:1 w/ Team',
-      timeleft: '3 hours',
-    }];
+    ];
   },
   methods: {
     determineIconColor() {
       return this.darktheme ? 'white' : 'black';
     },
+    displayTime(time) {
+      return moment(time).format('hh:mm');
+    },
     calculateTimeLeft(time) {
-      return time;
+      return moment(time).fromNow();
     },
   },
 };
@@ -137,7 +133,7 @@ export default {
   align-self: center;
 }
 .calendar {
-  border: 1px solid red;
+  /* border: 1px solid red; */
 
 }
 .title {

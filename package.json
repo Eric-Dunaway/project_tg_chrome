@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "material-design-icons-iconfont": "^3.0.3",
+    "moment": "^2.24.0",
     "roboto-fontface": "*",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1",
