@@ -1,30 +1,28 @@
 <template>
-  <v-app>
-    <!-- eslint-disable-next-line -->
+  <!-- eslint-disable-next-line -->
       <Background :searchWord="word" :customURL="userURL">
-      <v-container fluid>
-        <v-layout
-          align-center
-          justify-center
-          column
-        >
-          <v-flex>
-            <!-- DELETE and add middle component (probably needs margin-top already centered)-->
-            <MiddleComponent>
-              Middle component
-            </MiddleComponent>
-          </v-flex>
-        </v-layout>
-      </v-container>
-    </Background>
-  </v-app>
+    <v-container fluid>
+      <v-layout
+        align-center
+        justify-center
+        column
+      >
+        <v-flex>
+          <!-- DELETE and add middle component (probably needs margin-top already centered)-->
+          <MiddleComponent>
+            Middle component
+          </MiddleComponent>
+        </v-flex>
+      </v-layout>
+    </v-container>
+  </Background>
 </template>
 
 <script>
 import Background from '../../components/Background';
 import MiddleComponent from '../../components/MiddleComponent';
 // ********/SEARCH PHOTOS CONTAINING WORD(S)\**********
-const word2Search = 'space';
+const word2Search = 'starscape';
 // ******************************************************
 
 // ********/CUSTOM URL FOR USERS\**********
@@ -53,11 +51,14 @@ export default {
   mounted() {
     browser.runtime.sendMessage({});
   },
+  render(createElement) {
+    return createElement('h1', 'Hello world!');
+  },
 };
 </script>
 
 <style scoped>
-p {
-  font-size: 40px;
-}
+  p {
+    font-size: 20px;
+  }
 </style>

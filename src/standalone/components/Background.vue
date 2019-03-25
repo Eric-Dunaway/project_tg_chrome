@@ -2,9 +2,9 @@
   <div
     id="backgroundPicDiv"
     :style="{
-      backgroundImage: `url('${image}')`,
+      backgroundImage: `url('${image}&w=${width}&h=${height - 62}&fit=max')`,
       width: `${width}`,
-      height: `${height}`
+      height: `${height - 62}`
     }"
   >
     <slot />
@@ -38,10 +38,8 @@ export default {
               Authorization: 'Client-ID c01fec69a3d7aba9294659ebf752717ae5bbbe7283df275c2195af91d67de6f1',
             },
             params: {
-              query: this.search,
+              query: this.searchWord,
               orientation: 'landscape',
-              w: window.screen.width,
-              h: window.screen.height,
             },
           });
           // Print payload from unsplash.com api in following log
