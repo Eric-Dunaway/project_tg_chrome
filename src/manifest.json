@@ -10,8 +10,8 @@
     "48": "icons/48.png",
     "128": "icons/128.png"
   },
-  "permissions": ["tabs", "identity", "http://*/"],
-  "content_security_policy": "script-src 'self' 'unsafe-eval' https://*.firebaseio.com https://www.googleapis.com https://apis.google.com 'sha256-yGH2MN16oB45NKasTZX+3s8Pxi4a/Dw473njO8ukvMU=' http://localhost:8098; object-src 'self'",
+  "permissions": ["tabs", "identity"],
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://*.firebaseio.com https://www.googleapis.com https://apis.google.com; object-src 'self'",
   "oauth2": {
     "client_id": "412513743787-0jt4rq9kg21jggaosuhlcb86kpi3or21.apps.googleusercontent.com",
     "scopes": [
