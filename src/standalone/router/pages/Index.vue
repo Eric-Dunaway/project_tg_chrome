@@ -8,10 +8,7 @@
         column
       >
         <v-flex>
-          <!-- DELETE and add middle component (probably needs margin-top already centered)-->
-          <MiddleComponent>
-            Middle component
-          </MiddleComponent>
+          <Time />
         </v-flex>
       </v-layout>
     </v-container>
@@ -19,8 +16,8 @@
 </template>
 
 <script>
+import Time from '../../components/Time';
 import Background from '../../components/Background';
-import MiddleComponent from '../../components/MiddleComponent';
 // ********/SEARCH PHOTOS CONTAINING WORD(S)\**********
 const word2Search = 'starscape';
 // ******************************************************
@@ -33,14 +30,17 @@ const word2Search = 'starscape';
 
 export default {
   components: {
+    Time,
     Background,
-    MiddleComponent,
   },
+
   data() {
     return {
       word: word2Search,
       // userURL: null || url2Show,
-      middleComponent: '',
+      color: '',
+      fontFamily: '',
+      fontSize: null,
     };
   },
   computed: {
@@ -51,8 +51,11 @@ export default {
   mounted() {
     browser.runtime.sendMessage({});
   },
-  render(createElement) {
-    return createElement('h1', 'Hello world!');
+  methods: {
+    // This method will hook up to the color picker component
+    // updateColor(newColor) {
+    //   this.color = newColor;
+    // },
   },
 };
 </script>
