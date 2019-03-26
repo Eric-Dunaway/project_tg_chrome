@@ -98,6 +98,7 @@
 <script>
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import { google } from 'googleapis';
 // import components for drawers here
 
 export default {
@@ -126,6 +127,9 @@ export default {
       },
     ],
   }),
+  beforeCreate() {
+    this.initCalendar();
+  },
   methods: {
     googleSignIn(interactive) {
       browser.identity.getAuthToken({ interactive: !!interactive }, (token) => {
@@ -135,8 +139,12 @@ export default {
           console.error(browser.runtime.lastError);
         } else if (token) {
           // Authorize Firebase with the OAuth Access Token.
-          const credential = firebase.auth.GoogleAuthProvider.credential(null, token);
-          firebase.auth()
+          const credential = firebase.auth.GoogleAuthProvider.credential(
+            null,
+            token,
+          );
+          firebase
+            .auth()
             .signInAndRetrieveDataWithCredential(credential)
             .catch((error) => {
               // The OAuth token might have been invalidated. Lets' remove it from cache.
@@ -151,17 +159,45 @@ export default {
         }
       });
     },
+
+    initCalendar() {
+      console.log('working');
+      google.load('client', () => {
+        google.client.init({
+          apiKey: 'AIzaSyAwE84VTKNXhR-3iupxN9GFpx3EXjN55gw',
+          clientId:
+            '876962566748-p2ph7khp7kcml7j2j6gfhe1htsv8m6jj.apps.googleusercontent.com',
+          discoveryDocs: [
+            'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest',
+          ],
+          scope: 'https://www.googleapis.com/auth/calendar.events.readonly',
+        });
+        google.client.load('calendar', () => console.log('calendar loaded'));
+      });
+    },
+
+    async getCalendar() {
+      const events = await google.client.calendar.events.list({
+        calendarId: 'primary',
+        timeMin: new Date().toISOString(),
+        showDeleted: false,
+        singleEvents: true,
+        orderBy: 'startTime',
+      });
+      console.log(events.resutl.items);
+    },
   },
 };
 </script>
 
 <style>
-html, body {
-    width: 101%;
-    height: 101%;
-    position: fixed;
-    overflow: auto;
-    padding:0;
-    margin:0;
+html,
+body {
+  width: 101%;
+  height: 101%;
+  position: fixed;
+  overflow: auto;
+  padding: 0;
+  margin: 0;
 }
 </style>
