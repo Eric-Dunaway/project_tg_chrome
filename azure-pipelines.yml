@@ -17,13 +17,8 @@ steps:
 
 - script: |
     yarn install
-    yarn build
-  displayName: 'yarn install and build'
+  displayName: 'yarn install'
 
-- task: SonarQubePrepare@4
-  inputs:
-    SonarQube: 'c1588b66-3144-4eb5-9bcf-ae706749b14f'
-    scannerMode: 'CLI'
-    
-- task: SonarQubePublish@4
-  inputs:
+- script: |
+    yarn vue-cli-service lint --no-fix
+  displayName: 'ESLint'
