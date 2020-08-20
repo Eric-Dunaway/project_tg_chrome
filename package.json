@@ -10,7 +10,7 @@
   "dependencies": {
     "firebase": "^5.9.0",
     "axios": "^0.18.1",
-    "dayjs": "^1.8.11",
+    "dayjs": "^1.8.31",
     "firebase": "^5.9.0",
     "axios": "^0.18.0",
     "material-design-icons-iconfont": "^3.0.3",
