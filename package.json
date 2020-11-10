@@ -19,7 +19,7 @@
     "vue-color-picker-wheel": "^0.4.3",
     "vue-router": "^3.0.1",
     "vuetify": "^1.5.5",
-    "vuex": "^3.0.1",
+    "vuex": "^3.5.1",
     "webextension-polyfill": "0.4.0"
   },
   "devDependencies": {
